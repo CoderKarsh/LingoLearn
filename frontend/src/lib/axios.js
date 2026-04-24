@@ -1,7 +1,9 @@
 import axios from "axios";
 
-// Always point frontend requests to the deployed backend on Render
-const BASE_URL = "https://streamify-app-ii41.onrender.com/api";
+const BASE_URL =
+  import.meta.env.MODE === "development"
+    ? "http://localhost:5001/api"
+    : "https://streamify-app-ii41.onrender.com/api";
 
 export const axiosInstance = axios.create({
   baseURL: BASE_URL,
